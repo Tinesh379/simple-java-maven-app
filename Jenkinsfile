@@ -4,7 +4,7 @@ pipeline{
     defaultAppVersion = getProjectVersion()
   }
   parameters{
-    string(name: 'app_version', defaultValue: '1.0-Snapshot', description: 'authored by above user')
+    string(name: 'app_version', defaultValue: '${env.defaultAppVersion}', description: 'authored by above user')
   }
   
   stages{
@@ -15,7 +15,7 @@ pipeline{
     }
     stage('show pom version'){
       steps{
-        
+        echo " below is the latest pom version"
         echo "${env.defaultAppVersion}"
       }
     }
