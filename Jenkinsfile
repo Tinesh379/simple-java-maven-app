@@ -1,12 +1,12 @@
 pipeline{
   agent any
-  
-  parameters{
-    string(name: 'app_version', defaultValue:"${env.defaultAppVersion}", description: 'authored by above user')
-  }
   environment{
     defaultAppVersion = getProjectVersion() 
   }
+  parameters{
+    string(name: 'app_version', defaultValue:"${env.defaultAppVersion}", description: 'authored by above user')
+  }
+  
   stages{
     stage('Deploy to Host'){
       steps{
