@@ -1,10 +1,10 @@
 pipeline{
   agent any
   environment{
-    defaultAppVersion = getProjectVersion()
+    defaultAppVersion = getProjectVersion().toString()
   }
   parameters{
-    string(name: 'app_version', defaultValue:'${pom.version}', description: 'authored by above user')
+    string(name: 'app_version', defaultValue: defaultAppVersion , description: 'authored by above user')
   }
   
   stages{
