@@ -1,12 +1,10 @@
 pipeline{
   agent any
   environment{
-    script{
-   string defaultAppVersion = getProjectVersion()
-    }
+    defaultAppVersion = getProjectVersion() 
   }
   parameters{
-    string(name: 'app_version', defaultValue: "${defaultAppVersion}" , description: 'authored by above user')
+    string(name: 'app_version', defaultValue: "${pom.version}" , description: 'authored by above user')
   }
   
   stages{
@@ -19,6 +17,8 @@ pipeline{
       steps{
         echo " below is the latest pom version"
         echo "${env.defaultAppVersion}"
+        echo " below is the string entered in jenkins"
+        echo "$app_version"
       }
     }
   }
