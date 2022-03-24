@@ -15,7 +15,7 @@ pipeline{
     }
     stage('show pom version'){
       steps{
-        getProjectVersion()
+        
         echo "${env.defaultAppVersion}"
       }
     }
