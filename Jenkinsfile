@@ -1,7 +1,10 @@
 pipeline{
   agent any
+  environments{
+    defaultAppVersion = getProjectVersion()
+  }
   parameters{
-    string(name: 'app_version', defaultValue:'1.0-alpha-snapshot', description: 'authored by above user')
+    string(name: 'app_version', defaultValue: '1.0-Snapshot', description: 'authored by above user')
   }
   
   stages{
@@ -13,12 +16,13 @@ pipeline{
     stage('show pom version'){
       steps{
         getProjectVersion()
+        echo "${env.defaultAppVersion}"
       }
     }
   }
 }
 
 def getProjectVersion(){
-  def pom = readFile 'pom.xml'
+  def pom = readMavenPom File: 'pom.xml'
   return pom.version
 }
