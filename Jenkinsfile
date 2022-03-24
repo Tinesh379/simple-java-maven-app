@@ -23,6 +23,7 @@ pipeline{
 }
 
 def getProjectVersion(){
-  def pom = readMavenPom File: 'pom.xml'
+ def pom = readMavenPom file: 'pom.xml'
   return pom.version
 }
+
