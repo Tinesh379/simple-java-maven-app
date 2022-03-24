@@ -1,7 +1,9 @@
 pipeline{
   agent any
   environment{
+    script{
    string defaultAppVersion = getProjectVersion()
+    }
   }
   parameters{
     string(name: 'app_version', defaultValue: "${defaultAppVersion}" , description: 'authored by above user')
