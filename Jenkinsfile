@@ -4,7 +4,7 @@ pipeline{
     defaultAppVersion = getProjectVersion() 
   }
   parameters{
-    string(name: 'app_version', defaultValue:"${defaultAppVersion}", description: 'authored by above user', trim: true)
+    string(name: 'app_version', defaultValue:"${POM_VERSION}", description: 'authored by above user', trim: true)
   }
   
   stages{
