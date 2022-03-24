@@ -1,6 +1,6 @@
 pipeline{
   agent any
-  environments{
+  environment{
     defaultAppVersion = getProjectVersion()
   }
   parameters{
