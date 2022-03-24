@@ -4,7 +4,7 @@ pipeline{
     defaultAppVersion = getProjectVersion() 
   }
   parameters{
-    string(name: 'app_version', defaultValue:"${env.defaultAppVersion}", description: 'authored by above user', trim: true)
+    string(name: 'app_version', defaultValue:"${BUILD_NUMBER}", description: 'authored by above user', trim: true)
   }
   
   stages{
