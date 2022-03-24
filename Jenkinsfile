@@ -1,7 +1,7 @@
 pipeline{
   agent any
   environment{
-    defaultAppVersion = getProjectVersion()
+   string defaultAppVersion = getProjectVersion()
   }
   parameters{
     string(name: 'app_version', defaultValue: "${defaultAppVersion}" , description: 'authored by above user')
@@ -25,5 +25,6 @@ pipeline{
 def getProjectVersion(){
  def pom = readMavenPom file: 'pom.xml'
   return pom.version
+
 }
 
