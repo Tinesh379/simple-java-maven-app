@@ -6,8 +6,12 @@ pipeline{
   parameters{
     string(name: 'app_version', defaultValue:"${env.DEFAULT_VERSION}", description: 'authored by above user', trim: true)
   }
-  
+
   stages{
+    stage('Maven Build'){
+      steps{
+        sh ' mvn clean package '
+      }
     stage('Deploy to Host'){
       steps{
       sh ' echo "hello world" '
