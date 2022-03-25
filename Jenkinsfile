@@ -5,8 +5,10 @@ pipeline{
   parameters{
     string(name: 'app_version', defaultValue: '', description: 'enter version or will take default value of pom')
  }
-
-   stage('Load properties'){
+ 
+  stages{
+    
+    stage('Load properties'){
       steps{
         script{
            properties(
@@ -21,8 +23,8 @@ pipeline{
         }
       }
     }
+   
     
-  stages{
     stage('Deploy to Host'){
       steps{
       sh ' echo "hello world" '
