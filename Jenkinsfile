@@ -4,6 +4,7 @@ pipeline{
   
   parameters{
     string(name: 'app_version', defaultValue: '', description: 'enter version or will take default value of pom')
+    choice(name: 'service_version', 
  }
 
   stages{
@@ -23,8 +24,7 @@ pipeline{
                   script: [classpath: [], sandbox: false, 
                   script: 
                            '''
-                           def choice = getValueFromArtifactory()
-                           return choice
+                           return ['DEV', 'QA', 'PROD']
                            '''
                 ]]]])])
         }
@@ -49,9 +49,6 @@ def getProjectVersion(){
  def pom = readMavenPom file: 'pom.xml'
   return pom.version
 }
-def getValueFromArtifactory(){
-  
-  return ['DEV', 'IT', 'PROD']
-}
+
 
 
