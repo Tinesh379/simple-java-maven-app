@@ -5,22 +5,8 @@ pipeline{
     DEFAULT_VERSION = "${getProjectVersion()}"
   }
   parameters{
-    choice (name: 'BUILD_or_DEPLOY', choices: ['BUILD', 'DEPLOY'], description: 'Pick something')
-    string( name: 'App_Version', Description: 'Selelect build no',
-       script: [
-          $class: 'GroovyScript', 
-           script: [
-                classpath: [], 
-                sandbox: false, 
-                script: 
-                    '''
-                    if (params.equals("DEPLOY")){
-                                return[${env.DEFAULT_VERSION}]
-                            }
-                  '''
-                ]
-            ]
-           )
+    withEnv( [ 'DEFAULT_VERSION = ${getProjetcVersion()}'] )
+    string(name: 'app_version', deafultValue: "${env.DEFAULT_VERSION}", description: 'enter version')
  }
 
   stages{
