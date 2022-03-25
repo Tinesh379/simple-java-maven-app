@@ -3,7 +3,7 @@ pipeline{
   agent any
   
   parameters{
-    string(name: 'app_version', defaultValue: '', description: 'enter version or will take default value of pom')
+    string(name: 'app_version', defaultValue: '<empty>', description: 'enter version or will take default value of pom')
  }
  
   stages{
@@ -35,11 +35,11 @@ pipeline{
     stage('show pom version'){
       steps{
         script{
-          def service_version = {parms.app_version}.trim() ? {params.app_version}.trim() : getProjectVersion()
+
         echo " below is the latest pom version"
         echo "${getProjectVersion()}"
         echo " below is the string entered in jenkins"
-        echo "$service_version"
+        echo "$app_version"
         }
       }
     }
