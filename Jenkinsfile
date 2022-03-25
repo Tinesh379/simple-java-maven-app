@@ -6,18 +6,9 @@ pipeline{
   }
   parameters{
     choice (name: 'BUILD_or_DEPLOY', choices: ['BUILD', 'DEPLOY'], description: 'Pick something')
-   [ [$class: 'StringParameter',
-       description: 'enter pom version to deploy',
-       name: 'app_version',
-       defalultValue: 'select Deploy',
+    string( name: 'App_Version', Description: 'Selelect build no',
        script: [
           $class: 'GroovyScript', 
-           fallbackScript: [
-               classpath: [], 
-               sandbox: false, 
-               script: 
-                    'return[\'Please select DEPLOY\']'
-               ], 
            script: [
                 classpath: [], 
                 sandbox: false, 
@@ -26,11 +17,10 @@ pipeline{
                     if (params.equals("DEPLOY")){
                                 return[${env.DEFAULT_VERSION}]
                             }
-                    '''
+                  '''
                 ]
             ]
-       ]
-    ]
+           )
  }
 
   stages{
