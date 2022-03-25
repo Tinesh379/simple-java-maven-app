@@ -15,15 +15,6 @@ pipeline{
       }
     }
     
-    stage('ping jenkins'){
-      steps{
-        script{
-          sh '''
-          curl -s -u admin:admin "http:localhost:8080" 
-          '''
-        }
-      }
-    }
     stage('show pom version'){
       steps{
         echo " below is the latest pom version"
