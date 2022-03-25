@@ -15,11 +15,13 @@ pipeline{
     
     stage('show pom version'){
       steps{
+        script{
         def service_version = app_version.trim() ? app_version.trim() : getProjectVersion()
         echo " below is the latest pom version"
         echo "${getProjectVersion()}"
         echo " below is the string entered in jenkins"
         echo "$service_version"
+        }
       }
     }
   }
