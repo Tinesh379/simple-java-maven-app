@@ -5,9 +5,20 @@ pipeline{
   parameters{
     string(name: 'app_version', defaultValue: '', description: 'enter version or will take default value of pom')
  }
-  
-  properties(
-    [parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', filterLength: 1, filterable: false, name: 'service_version', randomName: 'choice-parameter-429424945137', 
+
+  stages{
+    stage('Deploy to Host'){
+      steps{
+      sh ' echo "hello world" '
+      }
+    }
+    
+    
+    stage('Choice Parameter'){
+      steps{
+        script{
+           properties(
+                [parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', filterLength: 1, filterable: false, name: 'service_version', randomName: 'choice-parameter-429424945137', 
                   script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], 
                   script: [classpath: [], sandbox: false, 
                   script: 
@@ -15,12 +26,8 @@ pipeline{
                            def choice = getValueFromArtifactory()
                            return choice
                            '''
-     ]]]])])
-
-  stages{
-    stage('Deploy to Host'){
-      steps{
-      sh ' echo "hello world" '
+                ]]]])])
+        }
       }
     }
     
