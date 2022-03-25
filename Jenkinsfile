@@ -25,6 +25,7 @@ pipeline{
       environment{  
        DEFAULT_VERSION = "${getProjectVersion()}" 
     }
+   }
 }
 
 def getProjectVersion(){
