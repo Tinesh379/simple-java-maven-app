@@ -2,7 +2,7 @@ properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELEC
 pipeline{
   
   agent any
-
+  stages{
     stage('Deploy to Host'){
       steps{
       sh ' echo "hello world" '
