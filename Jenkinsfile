@@ -23,15 +23,6 @@ pipeline{
       }
     }
   }
-  
-   post{
-    always{ 
-      script{
-        
-        DEFAULT_VERSION = "${getProjectVersion()}"
-      }
-    }
-  }
 }
 
 def getProjectVersion(){
