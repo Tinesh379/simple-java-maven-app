@@ -27,9 +27,8 @@ pipeline{
    post{
     always{ 
       script{
-        sh '''
-         sed -i "s;DEFAULT_VERSION;${getProjectVersion()};"
-        '''
+        
+        DEFAULT_VERSION = "${getProjectVersion()}"
       }
     }
   }
