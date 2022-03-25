@@ -7,7 +7,17 @@ pipeline{
  }
  
   stages{
-   
+    stage('load properties'){
+      steps{
+        script{
+          properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', filterLength: 1, filterable: false, name: 'Location', randomName: 'choice-parameter-3801792550735', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''return[
+\'Europe\',
+\'Poland,
+\'India
+]''']]]])])
+        }
+      }
+    }
     stage('Deploy to Host'){
       steps{
       sh ' echo "hello world" '
