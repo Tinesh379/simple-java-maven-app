@@ -15,8 +15,7 @@ pipeline{
         script{
         echo " below is the latest pom version"
         echo "${getProjectVersion()}"
-        echo " below is the string entered in jenkins"
-        echo "$SERVICE_VERSION"
+        echo " below is the string entered in jenkins
         }
       }
     }
