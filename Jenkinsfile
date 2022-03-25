@@ -1,4 +1,5 @@
 pipeline{
+  
   agent any
  
   parameters{
@@ -14,24 +15,25 @@ pipeline{
     stage('show pom version'){
       steps{
         echo " below is the latest pom version"
-        echo "${env.DEFAULT_VERSION}"
+        echo "${getProjectVersion()}"
         echo " below is the string entered in jenkins"
         echo "$app_version"
       }
     }
   }
-  post{
+  
+   post{
     always{
-      environment{  
-       DEFAULT_VERSION = "${getProjectVersion()}" 
+      environment{
+        DEFAULT_VERSION = "${getProjectVersion}"
+      }
     }
-   }
+  }
 }
 
 def getProjectVersion(){
  def pom = readMavenPom file: 'pom.xml'
   return pom.version
-}
 }
 
 
