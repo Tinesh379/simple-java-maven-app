@@ -28,7 +28,7 @@ pipeline{
     always{ 
       script{
         sh '''
-         sed -i "s;DEFAULT_VERSION;${env.DEFAULT_VERSION};"
+         sed -i "s;DEFAULT_VERSION;${getProjectVersion()};"
         '''
       }
     }
