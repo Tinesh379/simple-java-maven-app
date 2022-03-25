@@ -14,7 +14,7 @@ pipeline{
     stage('show pom version'){
       steps{
         echo " below is the latest pom version"
-      echo "${env.DEFAULT_VERSION}"
+        echo "${env.DEFAULT_VERSION}"
         echo " below is the string entered in jenkins"
         echo "$app_version"
       }
@@ -31,6 +31,7 @@ pipeline{
 def getProjectVersion(){
  def pom = readMavenPom file: 'pom.xml'
   return pom.version
+}
 }
 
 
