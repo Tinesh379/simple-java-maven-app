@@ -5,8 +5,7 @@ pipeline{
     DEFAULT_VERSION = "${getProjectVersion()}"
   }
   parameters{
-    withEnv( [ 'DEFAULT_VERSION = ${getProjetcVersion()}'] )
-    string(name: 'app_version', deafultValue: "${env.DEFAULT_VERSION}", description: 'enter version')
+    string(name: 'app_version', defaultValue: "${env.DEFAULT_VERSION}", description: 'enter version')
  }
 
   stages{
