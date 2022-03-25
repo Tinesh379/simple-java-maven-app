@@ -6,7 +6,7 @@ pipeline{
   }
   parameters{
     choice (name: 'BUILD_or_DEPLOY', choices: ['BUILD', 'DEPLOY'], description: 'Pick something')
-    [$class: 'StringParameter',
+   [ [$class: 'StringParameter',
        description: 'enter pom version to deploy',
        name: 'app_version',
        defalultValue: 'select Deploy',
@@ -30,6 +30,7 @@ pipeline{
                 ]
             ]
        ]
+    ]
  }
 
   stages{
