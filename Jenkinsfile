@@ -1,15 +1,7 @@
+properties([parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', filterLength: 1, filterable: false, name: 'Location', randomName: 'choice-parameter-5270744303467', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: 'return[ \'India\', \'Europe\', \'Poland\'] ']]]])])
 pipeline{
   
   agent any
-  
-  parameters{
-    string(name: 'app_version', defaultValue: '<empty>', description: 'enter version or will take default value of pom')
-    choice(name: 'environment', script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], script: [classpath: [], sandbox: false, script: '''return[
-\'Europe\',
-\'Poland,
-\'India
-]''']]]])]))
- }
 
     stage('Deploy to Host'){
       steps{
