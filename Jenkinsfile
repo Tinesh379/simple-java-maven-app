@@ -12,6 +12,7 @@ pipeline{
       steps{
         sh ' mvn clean package '
       }
+    }
     stage('Deploy to Host'){
       steps{
       sh ' echo "hello world" '
