@@ -4,7 +4,6 @@ pipeline{
   
   parameters{
     string(name: 'app_version', defaultValue: '', description: 'enter version or will take default value of pom')
-    choice(name: 'service_version', 
  }
 
   stages{
