@@ -25,7 +25,7 @@ pipeline{
    post{
     always{
       environment{
-        DEFAULT_VERSION = "${getProjectVersion}"
+        DEFAULT_VERSION = "${getProjectVersion()}"
       }
     }
   }
