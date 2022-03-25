@@ -7,6 +7,23 @@ pipeline{
  }
  
   stages{
+    
+    stage('Load properties'){
+      steps{
+        script{
+           properties(
+                [parameters([[$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', filterLength: 1, filterable: false, name: 'environment', randomName: 'choice-parameter-429424945137', 
+                  script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], 
+                  script: [classpath: [], sandbox: false, 
+                  script: 
+                           '''
+                           return ['DEV', 'QA', 'PROD']
+                           '''
+                ]]]])])
+        }
+      }
+    }
+   
   
     stage('Deploy to Host'){
       steps{
@@ -18,7 +35,7 @@ pipeline{
     stage('show pom version'){
       steps{
         script{
-        def service_version = $app_version.trim() ? $app_version.trim() : getProjectVersion()
+          def service_version = ${parms.app_version}.trim() ? ${params.app_version}.trim() : getProjectVersion()
         echo " below is the latest pom version"
         echo "${getProjectVersion()}"
         echo " below is the string entered in jenkins"
