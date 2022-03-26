@@ -37,7 +37,9 @@ def getProjectVersion(){
 
 def getVersionsFromArtifactory(){
 
-  return['9848509950','7989718764','9505780585]
+  def versions =['9848509950','7989718764','9505780585']
+
+  return versions.tokenize()
 }
 
 
