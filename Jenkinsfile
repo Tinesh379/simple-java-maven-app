@@ -39,7 +39,9 @@ def getVersionsFromArtifactory(){
 
   def versions =['9848509950','7989718764','9505780585']
 
-  return versions.tokenize()
+  def output = versions.in.text
+
+  return output.tokenize()
 }
 
 
