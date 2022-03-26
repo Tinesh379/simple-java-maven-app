@@ -21,15 +21,11 @@ pipeline{
   }
 }
 
-properties(
-            [parameters(
-              [choice(choices: ['BUILD', 'DEPLOY'], description: 'select build or deploy ', name: 'BUILD_ORDEPLOY'), 
-               choice(choices: ['IT', 'UAT', 'PROD'], description: 'choose the environment to deploy ', name: 'ENVIRONMENT'), 
-               [$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', description: 'select release version to deploy', filterLength: 1, filterable: false, name: 'SERVICE_VERSION', randomName: 'choice-parameter-5803932932773', 
-                script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], 
-                script: [classpath: [], sandbox: false, script: 'def choice = getVersionsFromArtifactory() return choice'], 
-               string(defaultValue: '<empty>', description: 'Enter Valid RFC number for Production Deployment', name: 'CHANGE REQUEST', trim: true )
-               ])])
+properties([parameters([choice(choices: ['BUILD', 'DEPLOY'], description: 'Select any option', name: 'BUILD_or_DEPLOY'), 
+                        choice(choices: ['IT', 'UAT', 'PRODUCTION'], description: 'choose environment to deploy', name: 'ENVIRONMENT'), 
+                        [$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', filterLength: 1, filterable: false, name: 'SERVICE_VERSION', randomName: 'choice-parameter-408672818199', 
+                         script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], 
+                         script: [classpath: [], sandbox: false, script: 'return[ \'IRIS R11.03.00\', \'Legacy R02.03.00\', \'PATHways R02.03.00\' ]']]]])])
            
 
 def getProjectVersion(){
