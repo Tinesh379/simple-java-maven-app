@@ -26,7 +26,7 @@ properties(
               choice(choices: ['IT', 'UAT', 'PRODUCTION'], description: 'choose environment to deploy', name: 'ENVIRONMENT'), 
               [$class: 'ChoiceParameter', choiceType: 'PT_SINGLE_SELECT', filterLength: 1, filterable: false, name: 'SERVICE_VERSION', randomName: 'choice-parameter-408672818199', 
               script: [$class: 'GroovyScript', fallbackScript: [classpath: [], sandbox: false, script: ''], 
-              script: [classpath: [], sandbox: false, script: 'return['9848509950','9640195964','7989718764','9505780585']']]]])])
+              script: [classpath: [], sandbox: false, script: 'return['RFC848509950','RFC0195964','RFC718764','RFC5780585']']]]])])
            
 
 def getProjectVersion(){
