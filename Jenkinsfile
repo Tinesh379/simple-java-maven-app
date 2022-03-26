@@ -33,10 +33,7 @@ def getProjectVersion(){
   return pom.version
 }
 
-def getVersionsFromArtifactory(){
-  def output = return[ '20.16.85', '20.17.86', '20.18.87', 20.19.87' ]
-                      return output.tokenize()
-       }
+
 
 
 
