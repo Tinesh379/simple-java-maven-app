@@ -31,6 +31,13 @@ pipeline{
       }
     }
     
+    stage('load scripts'){
+      steps{
+        scripts{
+          sh '$pwd/scripts/hello.sh'
+        }
+      }
+    }
     
     stage('show pom version'){
       steps{
