@@ -3,9 +3,19 @@ pipeline{
   agent any
   stages{
    
-    stage('Deploy to Host'){
+    stage('Hello'){
       steps{
       sh ' echo "hello world" '
+      }
+    }
+    
+    stage('Deploy to Host'){
+      steps{
+        script{
+          if (params.ENVIRONMENT.equals('PROD') && params.BUILD_OR_DEPLOY.equals('DEPLOY')){
+            echo '$BUILD_OR_DEPLOY'
+            echo '$ENVIRONMENT'     
+        }
       }
     }
     
