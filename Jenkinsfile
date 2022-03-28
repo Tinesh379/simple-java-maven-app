@@ -11,10 +11,10 @@ pipeline{
     
     stage('Pre-Check'){
       when{
-        branch 'develop'
+        branch 'main'
       }
       
-      steps{ sh 'echo "This is DEV branch"'}
+      steps{ sh 'echo "This is master branch"'}
     }
     
     stage('Deploy to Host'){
@@ -43,7 +43,7 @@ pipeline{
     
     stage('list out contents'){
       when{
-        branch '.main*'
+        branch 'develop'
       } 
       steps{
         sh'pwd' 
