@@ -9,14 +9,6 @@ pipeline{
       }
     }
     
-    stage('Pre-Check'){
-      when{
-        branch 'main'
-      }
-      
-      steps{ sh 'echo "This is master branch"'}
-    }
-    
     stage('Deploy to Host'){
       steps{
         script{
@@ -31,13 +23,6 @@ pipeline{
       }
     }
     
-    stage('load scripts'){
-      steps{
-        
-          sh '$pwd/$JOB_NAME/scripts/hello.sh'
-        
-      }
-    }
     
     stage('show pom version'){
       steps{
@@ -59,9 +44,13 @@ pipeline{
     }
   }
   post{
-    success{
-      
-      echo "This Build is success, Notifying the developer"
+    success{    
+      when{
+        branch '*-develop'
+      }    
+      script{
+        echo "${getProjectVersion()}"
+      }    
     }
   }
   
