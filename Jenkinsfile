@@ -43,7 +43,7 @@ pipeline{
     
     stage('list out contents'){
       when{
-        branch '*master*'
+        branch 'main*'
       } 
       steps{
         sh'pwd' 
