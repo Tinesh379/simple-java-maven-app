@@ -44,11 +44,10 @@ pipeline{
     }
   }
   post{
-    success{    
-      when{
-        branch '*-develop'
-      }    
+    success{       
       script{
+        if( env.BRANCH_NAME ==~ '.*-develop')
+        
         echo "${getProjectVersion()}"
       }    
     }
