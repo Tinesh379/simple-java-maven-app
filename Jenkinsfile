@@ -34,7 +34,7 @@ pipeline{
     stage('load scripts'){
       steps{
         
-          sh '$pwd/scripts/hello.sh'
+          sh '$pwd/$JOB_NAME/scripts/hello.sh'
         
       }
     }
