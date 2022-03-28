@@ -40,6 +40,8 @@ pipeline{
         }
       }
     }
+    
+    stage('list out contents'){when{branch'master'} sh 'pwd' sh'ls -altr'}
   }
   post{
     success{
