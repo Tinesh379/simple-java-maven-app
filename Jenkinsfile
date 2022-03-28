@@ -9,6 +9,14 @@ pipeline{
       }
     }
     
+    stage('Pre-Check'){
+      when{
+        branch 'develop'
+      }
+      
+      steps{ sh 'echo "This is DEV branch"'}
+    }
+    
     stage('Deploy to Host'){
       steps{
         script{
@@ -23,7 +31,7 @@ pipeline{
       }
     }
     
-    stage('check condition'){when{ branch 'develop'} sh 'echo "This is Develop Branch"'}
+    
     stage('show pom version'){
       steps{
         script{
