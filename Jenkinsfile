@@ -41,6 +41,12 @@ pipeline{
       }
     }
   }
+  post{
+    success{
+      
+      echo "This Build is success, Notifying the developer"
+    }
+  }
   
 }
 
