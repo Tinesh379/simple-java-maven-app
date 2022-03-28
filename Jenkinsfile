@@ -14,7 +14,8 @@ pipeline{
         script{
           if (params.ENVIRONMENT.equals('PROD') && params.BUILD_OR_DEPLOY.equals('DEPLOY')){
             echo '$BUILD_OR_DEPLOY'
-            echo '$ENVIRONMENT'     
+            echo '$ENVIRONMENT'
+          }
         }
       }
     }
