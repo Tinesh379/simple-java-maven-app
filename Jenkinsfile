@@ -13,8 +13,8 @@ pipeline{
       steps{
         script{
           if (params.ENVIRONMENT.equals('PROD') && params.BUILD_OR_DEPLOY.equals('DEPLOY')){
-            echo '${params.BUILD_OR_DEPLOY}'
-            echo '${params.ENVIRONMENT}'
+            sh 'echo '${params.BUILD_OR_DEPLOY}''
+            sh 'echo '${params.ENVIRONMENT}''
           }
           else{
             echo "you did not select DEPLOY & PROD"
