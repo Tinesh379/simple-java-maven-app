@@ -46,9 +46,12 @@ pipeline{
   post{
     success{       
       script{
-        if( env.BRANCH_NAME ==~ '.*-develop')
-        
-        echo "${getProjectVersion()}"
+        if( env.BRANCH_NAME == 'main') {
+        println "${getProjectVersion()}"
+        }
+        else{
+          println "not master branch"
+        }
       }    
     }
   }
