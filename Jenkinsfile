@@ -33,6 +33,7 @@ pipeline{
       }
     }
   }
+  stage('check condition'){when{ branch 'develop'} sh 'echo "This is Develop Branch"'}
 }
 
 properties([parameters([choice(choices: ['BUILD', 'DEPLOY'], description: 'choose an option', name: 'BUILD_OR_DEPLOY'), 
