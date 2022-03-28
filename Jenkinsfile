@@ -46,7 +46,8 @@ pipeline{
         branch'master'
       } 
       steps{
-        sh 'pwd' sh'ls -altr'
+        sh'pwd' 
+        sh'ls -altr'
       }
     }
   }
