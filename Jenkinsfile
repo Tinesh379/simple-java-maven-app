@@ -41,7 +41,7 @@ pipeline{
       }
     }
     
-    stage('list out contents'){when{branch'master'} sh 'pwd' sh'ls -altr'}
+    stage('list out contents'){when{branch'master'} steps{sh 'pwd' sh'ls -altr'}}
   }
   post{
     success{
