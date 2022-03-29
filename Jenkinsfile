@@ -23,6 +23,14 @@ pipeline{
       }
     }
     
+    stage('Test options'){
+      steps{
+        script{
+          println " enter CR number is ${listOut()}"
+        }
+      }
+    }
+    
     
     stage('show pom version'){
       steps{
@@ -69,6 +77,12 @@ def getProjectVersion(){
 
  def pom = readMavenPom file: 'pom.xml'
   return pom.version
+}
+
+def listOut(){
+  def service = params.CR.trim() ? params.CR.trim() : getProjectVersion()
+   return service
+  
 }
 
 
