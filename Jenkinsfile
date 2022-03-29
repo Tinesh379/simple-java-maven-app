@@ -43,7 +43,7 @@ pipeline{
     
     stage('list out contents'){
       when{
-        branch 'develop'
+        branch 'main'
       } 
       steps{
         sh'pwd' 
@@ -54,7 +54,7 @@ pipeline{
   post{
     success{       
       script{
-        if( env.BRANCH_NAME == 'main') {
+        if( env.BRANCH_NAME.equals('main')) {
         println "${getProjectVersion()}"
         }
         else{
