@@ -43,8 +43,8 @@ pipeline{
     }
     stage('clover report'){
       steps{
-        clover (cloverReportFileName: 'clover.xml', 
-                cloverRepoDir: 'target/site/clover'
+        clover (cloverReportFileName: 'clover.xml' , 
+                cloverRepoDir: 'target/site/clover' ,
                 failingTarget: [], 
                 healthyTarget: [conditionalCoverage: 80, methodCoverage: 70, statementCoverage: 80], 
                 unhealthyTarget: []
