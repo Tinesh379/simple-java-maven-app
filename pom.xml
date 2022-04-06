@@ -14,6 +14,12 @@
       <version>4.13.2</version>
       <scope>test</scope>
     </dependency>
+    <dependency>
+     <groupId>org.openclover</groupId>
+     <artifactId>clover-maven-plugin</artifactId>
+     <version>4.2.0</version>
+     <type>maven-plugin</type>
+    </dependency>
   </dependencies>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
