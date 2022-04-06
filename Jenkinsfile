@@ -40,6 +40,11 @@ pipeline{
         }
       }
     }
+    stage('clover report'){
+      steps{
+        clover cloverReportFileName: 'clover.xml', failingTarget: [], healthyTarget: [conditionalCoverage: 80, methodCoverage: 70, statementCoverage: 80], unhealthyTarget: []
+      }
+    }
     
     stage('list out contents'){
       when{
