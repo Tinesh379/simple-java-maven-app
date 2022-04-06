@@ -6,6 +6,9 @@ pipeline{
     stage('Hello'){
       steps{
       sh ' echo "hello world" '
+      sh 'mmvn clover:setup test'
+      sh'mvn site -Pclover.report'
+        
       sh 'mvn clover:clover'
       }
     }
